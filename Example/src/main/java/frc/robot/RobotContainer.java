@@ -4,17 +4,52 @@
 
 package frc.robot;
 
+import org.frc5010.common.arch.GenericRobot;
+import org.frc5010.common.arch.WpiHelperInterface;
+import org.frc5010.common.arch.WpiNetworkTableValuesHelper;
+import org.frc5010.common.constants.Constants;
+
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.Commands;
 
-public class RobotContainer {
+public class RobotContainer implements WpiHelperInterface {
+  private SendableChooser<Command> command;
+	public static Constants constants;
+	private GenericRobot robot;
+
   public RobotContainer() {
-    configureBindings();
+    constants = new Constants();
+
+    robot = new ExampleRobot("basic_robot");
+    configureButtonBindings();
+ 		initAutoCommands();
+		WpiNetworkTableValuesHelper.loadRegisteredToNetworkTables();
+
   }
 
-  private void configureBindings() {}
+  private void configureButtonBindings() {
+		robot.configureButtonBindings();
+	}
 
-  public Command getAutonomousCommand() {
-    return Commands.print("No autonomous command configured");
-  }
+	// Just sets up defalt commands (setUpDeftCom)
+	public void setupDefaults() {
+		robot.setupDefaultCommands();
+	}
+
+	/**
+	 * Use this to pass the autonomous command to the main {@link Robot} class.
+	 *
+	 * @return the command to run in autonomous
+	 */
+	public Command getAutonomousCommand() {
+		return robot.generateAutoCommand(command.getSelected());
+	}
+
+	public void initAutoCommands() {
+		robot.buildAutoCommands();
+	}
+
+	public void disabledBehavior() {
+		robot.disabledBehavior();
+	}
 }
