@@ -20,34 +20,7 @@
         "window": {
           "visible": true
         }
-      },
-      "/Shuffleboard/Vision/Vision Field": {
-        "bottom": 1476,
-        "height": 8.210550308227539,
-        "left": 150,
-        "right": 2961,
-        "top": 79,
-        "width": 16.541748046875
-      },
-      "/SmartDashboard/Field": {
-        "bottom": 1476,
-        "height": 8.210550308227539,
-        "left": 150,
-        "right": 2961,
-        "top": 79,
-        "width": 16.541748046875
-      },
-      "/SmartDashboard/VisionSystemSim-main/Sim Field": {
-        "bottom": 1476,
-        "height": 8.210550308227539,
-        "left": 150,
-        "right": 2961,
-        "top": 79,
-        "width": 16.541748046875
       }
     }
-  },
-  "NetworkTables Info": {
-    "visible": true
   }
 }

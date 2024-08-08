@@ -1,5 +1,5 @@
 {
-    "name": "backleft",
+    "name": "localization",
     "use": "apriltag",
     "type": "limelight",
     "strategy": "none",

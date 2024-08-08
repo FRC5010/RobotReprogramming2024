@@ -1,7 +1,7 @@
 {
   "cameras": [
-    "front_center.json",
-    "back_left.json",
-    "back_center.json"
+    "intake.json",
+    "localization.json",
+    "shooter.json"
   ]
 }
