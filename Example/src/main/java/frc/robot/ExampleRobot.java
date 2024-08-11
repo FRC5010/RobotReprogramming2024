@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class ExampleRobot extends GenericRobot {
 	SwerveConstants swerveConstants;
 	GenericDrivetrain drivetrain;
+  DisplayValueSubsystem displayValueSubsystem = new DisplayValueSubsystem();
 
 	public ExampleRobot(String directory) {
 		super(directory);
