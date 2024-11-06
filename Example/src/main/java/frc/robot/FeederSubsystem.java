@@ -4,11 +4,16 @@
 
 package frc.robot;
 
+import org.frc5010.common.arch.GenericSubsystem;
+
+import edu.wpi.first.wpilibj.smartdashboard.Mechanism2d;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Feeder extends SubsystemBase {
+public class FeederSubsystem extends GenericSubsystem {
   /** Creates a new Feeder. */
-  public Feeder() {}
+  public FeederSubsystem(Mechanism2d simulatedRobot) {
+    setMechSimulation(simulatedRobot);
+  }
 
   @Override
   public void periodic() {
