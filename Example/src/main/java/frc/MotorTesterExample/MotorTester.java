@@ -5,6 +5,8 @@
 package frc.MotorTesterExample;
 
 import org.frc5010.common.arch.GenericRobot;
+import org.frc5010.common.motors.MotorFactory;
+import org.frc5010.common.motors.function.VelocityControlMotor;
 import org.frc5010.common.sensors.Controller;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
@@ -13,14 +15,18 @@ import edu.wpi.first.wpilibj2.command.Commands;
 public class MotorTester extends GenericRobot {
 
     BasicKrakenRunner krakenRunner;
+    VelocityRunner velocityRunner;
 
     public MotorTester(String directory) {
         super(directory);
         krakenRunner = new BasicKrakenRunner(mechVisual);
+        velocityRunner = new VelocityRunner(new VelocityControlMotor(MotorFactory.NEO(2)), mechVisual);
     }
 
     @Override
     public void configureButtonBindings(Controller driver, Controller operator) {
+        driver.createAButton().whileTrue(Commands.runOnce(() -> velocityRunner.setReferenceSpeed(2000), velocityRunner))
+        .onFalse(Commands.runOnce(() -> velocityRunner.setReferenceSpeed(0.0), velocityRunner));
     }
 
     @Override

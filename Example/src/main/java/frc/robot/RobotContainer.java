@@ -25,7 +25,6 @@ public class RobotContainer implements WpiHelperInterface {
     configureButtonBindings();
  		initAutoCommands();
 		WpiNetworkTableValuesHelper.loadRegisteredToNetworkTables();
-
   }
 
   private void configureButtonBindings() {
