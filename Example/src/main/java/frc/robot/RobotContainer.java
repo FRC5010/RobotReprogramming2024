@@ -21,7 +21,7 @@ public class RobotContainer implements WpiHelperInterface {
   public RobotContainer() {
     constants = new Constants();
 
-    robot = new MotorTester("basic_robot");
+    robot = new MotorTester("controls_board");
     configureButtonBindings();
  		initAutoCommands();
 		WpiNetworkTableValuesHelper.loadRegisteredToNetworkTables();

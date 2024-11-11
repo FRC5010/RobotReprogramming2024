@@ -19,7 +19,7 @@ public class BasicKrakenRunner extends GenericSubsystem {
   /** Creates a new BasicKrakenRunner. */
   public BasicKrakenRunner(Mechanism2d mechVisual) {
     mechanismSimulation = mechVisual;
-    this.motor = new PercentControlMotor(MotorFactory.KrakenX60(2));
+    this.motor = new PercentControlMotor(MotorFactory.KrakenX60(3));
 
     motor.setVisualizer(mechanismSimulation, new Pose3d(1.0, 1.0, 1.0, new Rotation3d()), "Kraken Runner");
     motor.setupSimulatedMotor(1.0, 1.0);
