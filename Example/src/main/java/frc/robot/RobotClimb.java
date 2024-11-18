@@ -4,14 +4,21 @@
 
 package frc.robot;
 
+import org.frc5010.common.arch.GenericSubsystem;
+
+import edu.wpi.first.wpilibj.smartdashboard.Mechanism2d;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class RobotClimb extends SubsystemBase {
+public class RobotClimb extends GenericSubsystem {
+  PercentControlMotor motor
   /** Creates a new RobotClimb. */
-  public RobotClimb() {}
+  public RobotClimb(Mechanism2d simulatedRobot) {
+      setMechSimulation(simulatedRobot);
+  }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    
   }
 }
