@@ -5,6 +5,7 @@
 package frc.robot;
 
 import org.frc5010.common.arch.GenericRobot;
+import org.frc5010.common.config.ConfigConstants;
 import org.frc5010.common.config.json.DrivetrainPropertiesJson;
 import org.frc5010.common.constants.SwerveConstants;
 import org.frc5010.common.drive.GenericDrivetrain;
@@ -16,11 +17,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class ReprogramRobot extends GenericRobot {
   SwerveConstants swerveConstants;
   GenericDrivetrain drivetrain;
-  DisplayValueSubsystem displayValueSubsystem = new DisplayValueSubsystem();
 
   public ReprogramRobot(String directory) {
     super(directory);
-    drivetrain = (GenericDrivetrain) getSubsystem(DrivetrainPropertiesJson.DRIVE_TRAIN);
+    drivetrain = (GenericDrivetrain) getSubsystem(ConfigConstants.DRIVETRAIN);
   }
 
   @Override

@@ -18,6 +18,7 @@ public class MotorTester extends GenericRobot {
     BasicKrakenRunner krakenRunner;
     VelocityRunner velocityRunner;
 
+
     public MotorTester(String directory) {
         super(directory);
         PercentControlMotor motor1 = new PercentControlMotor(MotorFactory.KrakenX60(3));
