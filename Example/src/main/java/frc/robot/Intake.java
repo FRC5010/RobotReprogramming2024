@@ -5,6 +5,7 @@
 package frc.robot;
 
 import org.frc5010.common.arch.GenericSubsystem;
+import org.frc5010.common.motors.MotorController5010;
 import org.frc5010.common.motors.function.PercentControlMotor;
 
 import edu.wpi.first.math.geometry.Pose3d;
@@ -18,15 +19,17 @@ public class Intake extends GenericSubsystem {
   PercentControlMotor backMotor;
   /** Creates a new Intake. */
   public Intake(PercentControlMotor frontMotor, PercentControlMotor backMotor, Mechanism2d mechVisual) {
+    super(mechVisual);
+    
     // motor setup
     this.frontMotor=frontMotor;
     this.backMotor=backMotor;
-    backMotor.setFollow(frontMotor);
+    ((MotorController5010)backMotor.getMotor()).setFollow((MotorController5010)frontMotor.getMotor());
 
     // simulation setup
     mechanismSimulation = mechVisual;
-    backMotor.setVisualizer(mechVisual, new Pose3d(1.0,1.0,1.0, new Rotation3d()), "backIntakeMotor");
-    frontMotor.setVisualizer(mechVisual, new Pose3d(1.0,1.0,1.0, new Rotation3d()), "frontIntakeMotor");
+    backMotor.setVisualizer(mechVisual, new Pose3d(0.5,1.0,1.0, new Rotation3d()), "backIntakeMotor");
+    frontMotor.setVisualizer(mechVisual, new Pose3d(-0.5,1.0,1.0, new Rotation3d()), "frontIntakeMotor");
     backMotor.setupSimulatedMotor(1.0, 1.0);
     frontMotor.setupSimulatedMotor(1.0, 1.0);
     setMechSimulation(mechVisual);

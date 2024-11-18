@@ -4,6 +4,7 @@
       "/FMSInfo": "FMSInfo",
       "/Shuffleboard/Pose/Pose Field": "Field2d",
       "/Shuffleboard/Vision/Vision Field": "Field2d",
+      "/Shuffleboard/basic_robot/Auto Modes": "String Chooser",
       "/Shuffleboard/java.lang.Class/Auto Modes": "String Chooser",
       "/SmartDashboard/Drive Visual": "Mechanism2d",
       "/SmartDashboard/Field": "Field2d",
