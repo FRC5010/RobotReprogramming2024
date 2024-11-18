@@ -5,6 +5,7 @@
       "/Shuffleboard/Pose/Pose Field": "Field2d",
       "/Shuffleboard/Vision/Vision Field": "Field2d",
       "/Shuffleboard/java.lang.Class/Auto Modes": "String Chooser",
+      "/SmartDashboard/Drive Visual": "Mechanism2d",
       "/SmartDashboard/Field": "Field2d",
       "/SmartDashboard/Pigeon 2 (v6) [13]": "Gyro",
       "/SmartDashboard/Robot Visual": "Mechanism2d",
@@ -31,5 +32,8 @@
   },
   "NetworkTables Info": {
     "visible": true
+  },
+  "NetworkTables View": {
+    "visible": false
   }
 }

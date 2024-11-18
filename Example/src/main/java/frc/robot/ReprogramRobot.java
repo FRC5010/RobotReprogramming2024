@@ -5,6 +5,7 @@
 package frc.robot;
 
 import org.frc5010.common.arch.GenericRobot;
+import org.frc5010.common.config.ConfigConstants;
 import org.frc5010.common.config.json.DrivetrainPropertiesJson;
 import org.frc5010.common.constants.SwerveConstants;
 import org.frc5010.common.drive.GenericDrivetrain;

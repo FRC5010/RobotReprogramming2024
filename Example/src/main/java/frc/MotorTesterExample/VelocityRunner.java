@@ -21,6 +21,7 @@ public class VelocityRunner extends GenericSubsystem {
   String MOTOR_SPEED_STRING = "Motor Speed";
 
   public VelocityRunner(VelocityControlMotor motor, Mechanism2d mechanism) {
+    super(mechanism);
     this.motor = motor;
     this.encoder = motor.getMotorEncoder();
     mechanismSimulation = mechanism;
