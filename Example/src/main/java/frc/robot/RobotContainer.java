@@ -11,7 +11,6 @@ import org.frc5010.common.constants.Constants;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.MotorTesterExample.MotorTester;
 
 public class RobotContainer implements WpiHelperInterface {
   private SendableChooser<Command> command;
