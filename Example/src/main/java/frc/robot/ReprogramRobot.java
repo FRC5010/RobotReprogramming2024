@@ -31,7 +31,7 @@ public class ReprogramRobot extends GenericRobot {
     super(directory);
     PercentControlMotor frontIntakeMotor = new PercentControlMotor(MotorFactory.KrakenX60(5)); // Needs motor id
     PercentControlMotor backtIntakeMotor = new PercentControlMotor(MotorFactory.KrakenX60(1)); // Needs motor id
-    drivetrain = (GenericDrivetrain) getSubsystem(DrivetrainPropertiesJson.DRIVE_TRAIN);
+    drivetrain = (GenericDrivetrain) getSubsystem(ConfigConstants.DRIVETRAIN);
     intakeSubsystem = new Intake(frontIntakeMotor, backtIntakeMotor, mechVisual);
   }
 
