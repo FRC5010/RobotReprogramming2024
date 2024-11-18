@@ -6,6 +6,7 @@ package frc.MotorTesterExample;
 
 import org.frc5010.common.arch.GenericRobot;
 import org.frc5010.common.motors.MotorFactory;
+import org.frc5010.common.motors.function.PercentControlMotor;
 import org.frc5010.common.motors.function.VelocityControlMotor;
 import org.frc5010.common.sensors.Controller;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -19,7 +20,9 @@ public class MotorTester extends GenericRobot {
 
     public MotorTester(String directory) {
         super(directory);
-        krakenRunner = new BasicKrakenRunner(mechVisual);
+        PercentControlMotor motor1 = new PercentControlMotor(MotorFactory.KrakenX60(3));
+        krakenRunner = new BasicKrakenRunner(mechVisual, motor1);
+        
         velocityRunner = new VelocityRunner(new VelocityControlMotor(MotorFactory.NEO(2)), mechVisual);
     }
 
