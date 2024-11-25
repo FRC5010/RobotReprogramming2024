@@ -25,7 +25,7 @@ PercentControlMotor motor;
 
     motor = new PercentControlMotor(MotorFactory.NEO(11));
 
-    motor.setVisualizer(mechanismSimulation, new Pose3d(0.05, 1.0, 0.4, new Rotation3d()), "Feeder Neo");
+    motor.setVisualizer(mechanismSimulation, new Pose3d(0.15, 1.0, 0.4, new Rotation3d()), "Feeder Neo");
     motor.setupSimulatedMotor(1.0, 1.0);
 
   }
