@@ -6,6 +6,7 @@ package frc.MotorTesterExample;
 
 import org.frc5010.common.arch.GenericSubsystem;
 import org.frc5010.common.motors.function.PercentControlMotor;
+
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.wpilibj.smartdashboard.Mechanism2d;
