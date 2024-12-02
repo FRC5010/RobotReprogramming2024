@@ -28,14 +28,15 @@ public class ReprogramRobot extends GenericRobot {
 
   @Override
   public void configureButtonBindings(Controller driver, Controller operator) {
-    driver.createAButton().andThen(loadNote());
+    driver.createAButton().onTrue(feeder.acceptNote());
+    feeder.isLoading.whileTrue(feeder.loadNote());
+    feeder.atStop.negate().and(feeder.detected.negate()).onTrue(Commands.runOnce(()->feeder.idle()));
   }
 
 
   @Override
   public void setupDefaultCommands(Controller driver, Controller operator) {
     drivetrain.setDefaultCommand(drivetrain.createDefaultCommand(driver));
-    feeder.setDefaultCommand(Commands.run(() -> feeder.runMotor(()->driver.getLeftTrigger()), feeder));
   }
 
   @Override

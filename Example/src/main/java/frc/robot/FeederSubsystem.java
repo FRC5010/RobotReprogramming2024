@@ -72,10 +72,22 @@ PercentControlMotor motor;
      return Commands.runOnce(()->runMotor(speed), this);
   }
   public Command acceptNote(){
-    return runFeeder(()->.5).until(detected).andThen(runFeeder(()->.3)).until(atStop).finallyDo(()->runMotor(0));
+    return runFeeder(()->.5).until(detected).andThen(runFeeder(()->.3)).until(atStop).andThen(()->loading()).finallyDo(()->runMotor(0));
   }
   public Command loadNote(){
-    return runFeeder(()->-.2).until(atStop.negate()).finallyDo(()->runMotor(0));
+    return runFeeder(()->-.2).until(atStop.negate()).andThen(()->loaded()).finallyDo(()->runMotor(0));
+  }
+  public void setState(FeederState state){
+    this.state = state;
+  }
+  public void loading(){
+    setState(FeederState.Loading);
+  }
+  public void loaded(){
+    setState(FeederState.Loaded);
+  }
+  public void idle(){
+    setState(FeederState.Idle);
   }
   
   public Trigger atStop = new Trigger(()->stop.get());
