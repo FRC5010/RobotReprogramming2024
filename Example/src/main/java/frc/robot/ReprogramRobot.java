@@ -15,11 +15,13 @@ import org.frc5010.common.sensors.Controller;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.BasicRunClimb;
+import edu.wpi.first.wpilibj2.command.Commands;
 // Reference Document Link: https://docs.google.com/document/d/16YqkkYDurYPHd9RxBJdwxWiMCAomJKIatphhviYabxw/edit?usp=sharing
 /** This is an example robot class. */
 public class ReprogramRobot extends GenericRobot {
   SwerveConstants swerveConstants;
   GenericDrivetrain drivetrain;
+  FeederSubsystem feeder;
 
   private RobotClimb climbSubsystem;
 	private PercentControlMotor climbMotorLeft;
@@ -32,12 +34,14 @@ public class ReprogramRobot extends GenericRobot {
     climbSubsystem = new RobotClimb(mechVisual, climbMotorLeft, climbMotorRight);
 
     drivetrain = (GenericDrivetrain) getSubsystem(ConfigConstants.DRIVETRAIN);
+    feeder = new FeederSubsystem(mechVisual);
   }
 
   @Override
   public void configureButtonBindings(Controller driver, Controller operator) {
-    operator.createBButton ().onTrue(climbSubsystem.zeroClimb());
+    driver.createAButton().andThen(loadNote());
   }
+
 
   @Override
   public void setupDefaultCommands(Controller driver, Controller operator) {
