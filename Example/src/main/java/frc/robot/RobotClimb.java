@@ -96,7 +96,7 @@ private void resetRightEncoder () {
 }
 
 public Command zeroLeftClimb () {
-  return Commands.run(()-> setSpeedLeft(0.5), this)
+  return Commands.run(()-> setSpeedLeft(0.5))
     .until(leftCurrentSwitchIsHit())
     .andThen(Commands.runOnce(this::resetLeftEncoder));
     
