@@ -36,8 +36,8 @@ public class ReprogramRobot extends GenericRobot {
     climbMotorLeft = new PercentControlMotor(MotorFactory.NEO(7).invert(true));
     climbMotorRight = new PercentControlMotor(MotorFactory.NEO(8));
     climbSubsystem = new RobotClimb(mechVisual, climbMotorLeft, climbMotorRight);
-    topShooterMotor = new PercentControlMotor(MotorFactory.KrakenX60(0));
-    bottomShooterMotor = new PercentControlMotor(MotorFactory.KrakenX60(0));
+    topShooterMotor = new PercentControlMotor(MotorFactory.KrakenX60(12));
+    bottomShooterMotor = new PercentControlMotor(MotorFactory.KrakenX60(14));
 
     drivetrain = (GenericDrivetrain) getSubsystem(ConfigConstants.DRIVETRAIN);
     feeder = new FeederSubsystem(mechVisual);

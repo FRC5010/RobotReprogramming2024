@@ -27,9 +27,9 @@ public class Shooter extends GenericSubsystem {
 
     //sets simulation - gearing, pose3d, and momentOfInertialKgMetersSq
     topMotor.setVisualizer(simulatedRobot, new Pose3d(0, 0, 0, new Rotation3d()), "topShooterMotor");
-    topMotor.setupSimulatedMotor(1, 0);
+    topMotor.setupSimulatedMotor(1, 1);
     bottomMotor.setVisualizer(simulatedRobot, new Pose3d(0, 0, 1, new Rotation3d()), "bottomShooterMotor");
-    bottomMotor.setupSimulatedMotor(1, 0);
+    bottomMotor.setupSimulatedMotor(1, 1);
 
   }
 
