@@ -39,7 +39,8 @@ public class ReprogramRobot extends GenericRobot {
 
   @Override
   public void configureButtonBindings(Controller driver, Controller operator) {
-    driver.createAButton().andThen(loadNote());
+    driver.createAButton().onTrue(feeder.acceptNote());
+    driver.createBButton().onTrue(feeder.loadNote());
   }
 
 
