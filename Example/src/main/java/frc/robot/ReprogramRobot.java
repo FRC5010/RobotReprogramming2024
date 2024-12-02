@@ -28,14 +28,7 @@ public class ReprogramRobot extends GenericRobot {
 
   @Override
   public void configureButtonBindings(Controller driver, Controller operator) {
-    driver.createAButton()
-    .and(feeder.atStop.negate()
-    .and(feeder.detected.negate()).and(isIdle))
-    .onTrue(feeder.runFeeder(()->0.5));
-    driver.createAButton()
-    .or(feeder.atStop
-    .or(feeder.detected))
-    .onTrue(getAutonom)
+    driver.createAButton().andThen(loadNote());
   }
 
 

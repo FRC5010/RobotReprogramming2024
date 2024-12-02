@@ -61,13 +61,23 @@ PercentControlMotor motor;
   public void simulationPeriodic(){
     motor.simulationUpdate();
   }
-  public void runMotor(DoubleSupplier speed){
-    motor.set(speed.getAsDouble());
+  public void runMotor(double speed){
+    motor.set(speed);
 
   }
   public Command runFeeder(DoubleSupplier doubleSupplier){
-    return Commands.runOnce(()->runMotor(doubleSupplier), this);
+    return Commands.run(()->runMotor(doubleSupplier.getAsDouble()), this);
   }
+  public Command runFeeder(double speed){
+     return Commands.runOnce(()->runMotor(speed), this);
+  }
+  public Command acceptNote(){
+    return runFeeder(()->.5).until(detected).andThen(runFeeder(()->.3)).until(atStop).finallyDo(()->runMotor(0));
+  }
+  public Command loadNote(){
+    return runFeeder(()->-.2).until(atStop.negate()).finallyDo(()->runMotor(0));
+  }
+  
   public Trigger atStop = new Trigger(()->stop.get());
   public Trigger detected = new Trigger(()->detect.get());
   public Trigger isIdle = new Trigger(()->state == FeederState.Idle);
